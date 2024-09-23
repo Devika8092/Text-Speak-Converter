@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+    <title>Text to speak</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>TEXT TO SPEAK</h1>
+        <div>
+            <textarea name="input" id="text"></textarea>
+        </div>
+        <div>
+            <button id="speak"> Tag to listen</button>
+        </div>
+    </div>
+    <script>
+        var textarea=document.getElementById("text");
+        var speakbutton=document.getElementById("speak");
+        speakbutton.addEventListener("click",function(){
+            var text=textarea.value;
+            var utterance=new SpeechSynthesisUtterance();
+            utterance.text=text;
+            utterance.voice=window.speechSynthesis.getVoices()[0];
+            window.speechSynthesis.speak(utterance);
+        });
+    </script>
+</body>
+
+</html>
